@@ -21,5 +21,17 @@ public class FruitTest {
                 .body("[0].description", equalTo("Winter fruit"));
     }
 
+    @Test
+    public void testGetLegumes() {
+            given()
+                .relaxedHTTPSValidation()
+                .accept(ContentType.JSON)
+                .when()
+                .get("https://staging.tiered-planet.net/mild-temper/legumes")
+                .then()
+                .assertThat()
+                .body("[1].description", equalTo("Summer squash"));
+    }
+
 
 }
